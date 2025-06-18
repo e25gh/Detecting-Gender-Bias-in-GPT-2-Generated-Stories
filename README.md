@@ -1,23 +1,27 @@
 # Detecting Gender Bias in GPT-2 Generated Stories  
 [![GitHub](https://img.shields.io/badge/View_on-GitHub-blue?logo=github)](https://github.com/e25gh/Detecting-Gender-Bias-in-GPT-2-Generated-Stories)  
-
-🔍 *A project analyzing gendered stereotypes in AI-generated text*  
+🔍 *An NLP project uncovering stereotypes in AI-generated text*
 
 ## 🎯 Goal  
-Identify if GPT-2 disproportionately associates professions (e.g., "nurse", "engineer") with specific genders.  
+Identify whether GPT-2 disproportionately associates professions (e.g., "nurse", "engineer") with specific genders.
 
 ## 🛠️ Methods  
-- Generated 50+ text samples using **Hugging Face's GPT-2**.  
-- Manually analyzed outputs for gendered pronouns/assumptions.  
-- Quantified bias frequency (e.g., "nurse" → 80% female pronouns).  
+- Generated 100+ text samples using **Hugging Face's GPT-2**  
+- Analyzed outputs for:  
+  - Gendered pronouns ("she" vs. "he")  
+  - Stereotypical role assignments  
+- Quantified bias frequency per profession  
 
 ## 📊 Example Outputs  
-| Prompt          | Generated Text (Excerpt)          | Observed Bias |  
-|-----------------|-----------------------------------|---------------|  
-| "The nurse..."  | "The nurse said **she** was..."   | Female        |  
-| "The CEO..."    | "The CEO told **his** team..."    | Male          |  
+| Prompt          | Generated Text Excerpt          | Female Terms | Male Terms |
+|-----------------|--------------------------------|-------------|-----------|
+| "The nurse..."  | "The nurse said **she** was..." | 3           | 0         |
+| "The CEO..."    | "The CEO told **his** team..."  | 0           | 2         |
 
-## 🚀 How to Run  
-```bash
-pip install transformers torch
-python bias_detection.py
+```python
+# Sample bias distribution (simulated)
+import matplotlib.pyplot as plt
+professions = ["Nurse", "Engineer", "CEO"]
+bias_score = [85, 15, 20]  # % female-associated
+plt.bar(professions, bias_score)
+plt.title("Profession-Gender Association in GPT-2")
