@@ -1,0 +1,1 @@
+GPT-2 often defaults to stereotypes (e.g., nurses as female, engineers as male). This project highlights why bias detection matters in AI!
